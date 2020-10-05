@@ -22,7 +22,7 @@ public class DinnerWithMonitor extends Dinner
         synchronized(philosophers[p_id])
         {
             if (canEat(p_id)) philosophersStates.set(p_id, states.EATING);
-            while (philosophersStates.get(p_id) != states.EATING)
+            if (philosophersStates.get(p_id) != states.EATING)
             {
                 try{
                     this.philosophers[p_id].wait();
